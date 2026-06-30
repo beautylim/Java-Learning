@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Please Login</title>
+</head>
+<body>
+<div>
+    <form method="post" action="/user/login">
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </p>
+        <div>
+            <label for="captchaCode">Verification Code</label>
+            <input type="text" name="captchaCode" id="captchaCode" placeholder="Verification Code" style="width: 120px; height: 32px;">
+            <image id="captchaImg" src="/captcha" title="Refresh Code" onclick="refreshCode()"/>
+        </div>
+        <button type="submit">Login</button>
+        <p>
+            <label for="remember-me">Remember me</label>
+            <input type="checkbox" name="remember-me" id="remember-me">
+        </p>
+    </form>
+
+    <script>
+        function refreshCode() {
+            let captchaImg = document.getElementById('captchaImg');
+            captchaImg.src = '/captcha?timestamp=' + new Date().getTime();
+        }
+    </script>
+</div>
+</body>
+</html>

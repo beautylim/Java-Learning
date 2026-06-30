@@ -1,0 +1,53 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowed-origin-patterns: '*'
+                allowed-headers: '*'
+                allowed-methods: '*'
+          default-filters:
+
+          routes:
+            - id : auth-route
+              uri: lb://authserver
+              predicates:
+                - Path=/auth/**
+
+            - id: shop-route
+              uri: lb://shop
+              predicates:
+                - Path=/shop/**
+
+            - id: voucher-route
+              uri: lb://shop
+              predicates:
+                - Path=/voucher/**
+
+            - id: voucher-order-route
+              uri: lb://shop
+              predicates:
+                - Path=/voucher-order/**
+
+            - id: blog-route
+              uri: lb://shop
+              predicates:
+                - Path=/blog/**
+
+            - id: follow-route
+              uri: lb://shop
+              predicates:
+                - Path=/follow/**
+
+            - id: article-route
+              uri: lb://shop
+              predicates:
+                - Path=/article/**
+
+            - id: image-route
+              uri: lb://shop
+              predicates:
+                - Path=/images/**

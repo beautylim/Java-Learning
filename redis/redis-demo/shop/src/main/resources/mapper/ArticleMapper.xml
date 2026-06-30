@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.shop.mapper.ArticleMapper">
+
+    <sql id="queryConditions">
+        <where>
+            <!-- 假设只查询当前用户的文章 -->
+            author_id = #{authorId}
+
+            <if test="status != null and status != 0">
+                AND status = #{status}
+            </if>
+            <if test="channelId != null and channelId != 0">
+                AND channel_id = #{channelId}
+            </if>
+            <if test="startTime != null and startTime != ''">
+                AND DATE(create_time) &gt;= STR_TO_DATE(#{startTime}, '%Y-%m-%d')
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND DATE(create_time) &lt;= STR_TO_DATE(#{endTime}, '%Y-%m-%d')
+            </if>
+        </where>
+    </sql>
+    <insert id="insert" parameterType="org.example.shop.model.entity.Article" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO article(author_id, title, content, channel_id, status, cover)
+        VALUES(#{authorId}, #{title}, #{content}, #{channelId}, #{status},
+        #{cover, typeHandler=org.example.shop.typehandler.JsonTypeHandler})
+    </insert>
+    <update id="update" parameterType="org.example.shop.model.entity.Article">
+        update article
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="channelId != null and channelId != 0">
+                channel_id = #{channelId},
+            </if>
+            <if test="cover != null and cover != ''">
+                cover = #{cover},
+            </if>
+            <if test="status != null and status != 0">
+                status = #{status},
+            </if>
+            <if test="likeCount != null and likeCount != 0">
+                like_count = #{likeCount},
+            </if>
+            <if test="readCount != null and readCount != 0">
+                read_count = #{readCount},
+            </if>
+            <if test="commentCount != null and commentCount != 0">
+                comment_count = #{commentCount},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from article where id = #{id}
+
+    </delete>
+
+    <select id="selectArticleByAuthorId" resultType="org.example.shop.model.entity.Article"
+            parameterType="org.example.shop.model.entity.ArticleQuery">
+
+        SELECT *
+        FROM article
+        <include refid="queryConditions"/>
+        ORDER BY create_time DESC
+    </select>
+    <select id="getById" resultType="org.example.shop.model.entity.Article" parameterType="java.lang.Long">
+        SELECT *
+        FROM article
+        where id = #{id}
+    </select>
+
+
+</mapper>

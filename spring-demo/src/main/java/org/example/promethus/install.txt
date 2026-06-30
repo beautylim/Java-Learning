@@ -1,0 +1,32 @@
+# 下载
+wget https://github.com/prometheus/prometheus/releases/download/v2.53.3/prometheus-2.53.3.linux-amd64.tar.gz
+
+# 解压
+tar -zxvf prometheus-2.53.3.linux-amd64.tar.gz
+cd prometheus-2.53.3.linux-amd64
+
+vi prometheus.yml
+
+配置哪个service
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  # 抓取 业务服务 user-service
+  - job_name: "user-service"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["127.0.0.1:8080"] // 注意这个ip地址填 service启动打印出来的ip地址，比如 2026-04-22 08:09:04.269 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP user-service 192.168.1.3:8082 register finished
+
+
+  # 抓取 网关 gateway
+  - job_name: "gateway-server"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["127.0.0.1:8888"]
+
+// 打开prometheus
+http://你的服务器IP:9090
+
+//看 status -> target 你的service有没有up

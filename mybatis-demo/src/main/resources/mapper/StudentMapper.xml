@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mybatisdemo.mapper.StudentMapper">
+
+    <resultMap id="studentResultMap" type="org.example.mybatisdemo.model.entity.Student">
+        <id property="id" column="sid"></id>
+        <result property="name" column="sname"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="status" column="sstatus"></result>
+        <result property="createTime" column="screate_time"></result>
+<!--        <association property="clazz" javaType="org.example.mybatisdemo.model.entity.Clazz">-->
+<!--            <id property="id" column="cid"></id>-->
+<!--            <result property="name" column="cname"></result>-->
+<!--            <result property="status" column="cstatus"></result>-->
+<!--            <result property="createTime" column="ccreate_time"></result>-->
+<!--        </association>-->
+
+        <association property="clazz" select="org.example.mybatisdemo.mapper.ClazzMapper.getClazzById" column="cid"/>
+    </resultMap>
+    <select id="getStudentById" resultMap="studentResultMap" parameterType="java.lang.Long">
+        select id sid, name sname, birthday birthday, clazz_id cid,  status sstatus, create_time screate_time from student where id = #{id}
+    </select>
+    <select id="getStudentsByClassId" resultType="org.example.mybatisdemo.model.entity.Student"
+            parameterType="java.lang.Long">
+        select id, name, birthday, status, create_time from student where clazz_id = #{cid}
+    </select>
+    <select id="selectAll" resultType="org.example.mybatisdemo.model.entity.Student">
+        select id, name, birthday, status, create_time from student
+    </select>
+
+    <!--    <select id="getStudentById" resultMap="studentResultMap" parameterType="java.lang.Long">-->
+<!--        select s.id sid, s.name sname, s.birthday birthday,  s.status sstatus, s.create_time screate_time, c.id cid, c.name cname, c.status cstatus, c.create_time ccreate_time-->
+<!--        from student s-->
+<!--        left join clazz c-->
+<!--        on s.clazz_id = c.id-->
+<!--        where s.id = #{id}-->
+<!--    </select>-->
+</mapper>

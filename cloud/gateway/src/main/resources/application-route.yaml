@@ -1,0 +1,44 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowed-origin-patterns: '*'
+                allowed-headers: '*'
+                allowed-methods: '*'
+          default-filters:
+            - AddResponseHeader=X-Response-Red, Blue
+
+          routes:
+            - id : order-route
+              uri: lb://order
+              predicates:
+                - Path=/order/**
+
+            - id: product-route
+              uri: lb://product
+              predicates:
+                - Path=/product/**
+
+            - id: seata-order-route
+              uri: lb://seata-order
+              predicates:
+                - Path=/create/**
+
+            - id: seata-business-route
+              uri: lb://seata-business
+              predicates:
+                - Path=/purchase/**
+
+            - id: seata-account-route
+              uri: lb://seata-account
+              predicates:
+                - Path=/debit/**
+
+            - id: seata-storage-route
+              uri: lb://seata-storage
+              predicates:
+                - Path=/deduct/**

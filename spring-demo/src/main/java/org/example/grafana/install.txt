@@ -1,0 +1,25 @@
+apt-get install -y apt-transport-https
+wget -qO - https://packages.grafana.com/gpg.key | apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" > /etc/apt/sources.list.d/grafana.list
+apt update
+apt install grafana -y
+systemctl start grafana-server
+systemctl enable grafana-server
+
+
+http://你的服务器IP:3000
+
+
+admin / admin
+会让你立刻更改密码
+admin/123456
+
+Grafana 绑定 Prometheus
+左侧菜单 → Connections → Data sources
+点击 Add data source
+选择 Prometheus
+URL 填写：
+plaintext
+http://127.0.0.1:9090
+最下方：Save & test
+显示「Data source is working」即成功

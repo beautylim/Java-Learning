@@ -1,0 +1,47 @@
+# 1. 服务端口
+server:
+  port: 8081
+
+# 2. 微服务名称（spring cloud 必须）
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    # 网关自动注册 Nacos
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  # Nacos API地址
+        username: nacos
+        password: nacos
+        register-enabled: true  # 开启自动注册（默认就是true）
+
+    gateway:
+      # ====================== 手动路由（重点）======================
+      server:
+        webflux:
+          routes:
+            # 1. 用户服务路由
+            - id: user-service-route          # 路由唯一ID
+              uri: lb://user-service          # lb = 负载均衡 + 服务名
+              predicates: # 断言：匹配路径就转发
+                - Path=/api/v1/users/**
+
+          httpclient:
+            connect-timeout: 3000
+            response-timeout: 5000
+
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                allowedHeaders: "*"
+
+logging:
+  config: classpath:logback.xml
+

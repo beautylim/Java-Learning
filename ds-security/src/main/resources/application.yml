@@ -1,0 +1,19 @@
+
+server:
+  port: 8083
+
+spring:
+  application:
+    name: ds-security
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.model.entity
+  configuration:
+    map-underscore-to-camel-case: true

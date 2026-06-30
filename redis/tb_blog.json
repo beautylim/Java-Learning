@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "shop_id": 5,
+    "title": "非常好吃的一家店",
+    "content": "今天带娃开车来这家店打卡，有很多好吃的好玩的，全家非常开心",
+    "user_id": 1,
+    "tags": "亲子, 休闲, 味道好, 好停车",
+    "likes_count": 4,
+    "comments_count": 0,
+    "user_name": "minli",
+    "create_time": "2026-06-03 01:46:57",
+    "update_time": "2026-06-03 03:25:01"
+  },
+  {
+    "id": 2,
+    "shop_id": 5,
+    "title": "非常好吃的一家店",
+    "content": "今天带娃开车来这家店打卡，有很多好吃的好玩的，全家非常开心",
+    "user_id": 2,
+    "tags": "亲子, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_1",
+    "create_time": "2026-06-03 03:22:28",
+    "update_time": "2026-06-03 03:22:28"
+  },
+  {
+    "id": 3,
+    "shop_id": 6,
+    "title": "不愧是喜茶",
+    "content": "一直喝喜茶，味道还是一如既往的好，夏天来了，口味更多了",
+    "user_id": 2,
+    "tags": "亲子, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_1",
+    "create_time": "2026-06-03 05:53:59",
+    "update_time": "2026-06-03 05:53:59"
+  },
+  {
+    "id": 4,
+    "shop_id": 1,
+    "title": "地道四川火锅",
+    "content": "好久没吃火锅了，夏都小镇的这家火锅味道超级好，环境优美，适合朋友聚会",
+    "user_id": 3,
+    "tags": "朋友聚会首选, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_2",
+    "create_time": "2026-06-03 05:56:00",
+    "update_time": "2026-06-03 05:56:00"
+  },
+  {
+    "id": 5,
+    "shop_id": 2,
+    "title": "夏天第一杯奶茶",
+    "content": "夏天的第一杯奶茶，霸王别姬奶茶",
+    "user_id": 3,
+    "tags": "朋友聚会首选, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_2",
+    "create_time": "2026-06-03 05:59:28",
+    "update_time": "2026-06-03 05:59:28"
+  },
+  {
+    "id": 6,
+    "shop_id": 4,
+    "title": "好久没吃的淮扬菜",
+    "content": "清淡可口，有老家的味道，小朋友配宝宝餐椅",
+    "user_id": 3,
+    "tags": "亲子, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_2",
+    "create_time": "2026-06-03 06:00:38",
+    "update_time": "2026-06-03 06:00:38"
+  },
+  {
+    "id": 7,
+    "shop_id": 3,
+    "title": "最爱兰州牛肉拉面",
+    "content": "最近没胃口，但是知道自己一定喜欢吃兰州牛肉拉面，这家味道好极了",
+    "user_id": 2,
+    "tags": "亲子, 休闲, 味道好, 好停车",
+    "likes_count": 0,
+    "comments_count": 0,
+    "user_name": "user_1",
+    "create_time": "2026-06-03 07:02:12",
+    "update_time": "2026-06-03 07:02:12"
+  }
+]

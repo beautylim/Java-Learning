@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.SysUserMapper">
+    <select id="selectByUsername" resultType="org.example.model.entity.SysUser"
+            parameterType="java.lang.String">
+        SELECT id, username, password, email FROM sys_user WHERE username = #{username}
+    </select>
+
+    <select id="selectAll" resultType="org.example.model.entity.SysUser">
+        SELECT id, username, password, email FROM sys_user
+    </select>
+    <select id="getPermissionsByUsername" resultType="java.lang.String" parameterType="java.lang.Long">
+        select m.permission from sys_user u
+        join user_role r on u.id = r.user_id
+        join role_menu rm on rm.role_id = r.role_id
+        join menu m on rm.menu_id = m.id
+        where u.id = #{id};
+    </select>
+    <insert id="addUser" parameterType="org.example.model.entity.SysUser">
+        INSERT INTO sys_user (
+            username,
+            password,
+            email
+        ) values(
+            #{username},
+            #{password},
+            #{email}
+        )
+    </insert>
+    <update id="updateUser" parameterType="org.example.model.entity.SysUser">
+        UPDATE sys_user set
+            username=#{username},
+            password=#{password},
+            email=#{email}
+        WHERE id=#{id}
+    </update>
+    <delete id="deleteByUsername" parameterType="java.lang.Long">
+        DELETE sys_user WHERE id=#{id}
+    </delete>
+
+
+</mapper>

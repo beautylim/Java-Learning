@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "Java",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 2,
+    "name": "Python",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 3,
+    "name": "React",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 4,
+    "name": "JavaScript",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 5,
+    "name": "TypeScript",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 6,
+    "name": "Linux",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 7,
+    "name": "Shell",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 8,
+    "name": "Docker",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 9,
+    "name": "AWS",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 10,
+    "name": "Kubernetes",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 11,
+    "name": "AI",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 12,
+    "name": "机器学习",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 13,
+    "name": "深度学习",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 14,
+    "name": "大模型",
+    "create_time": "2026-06-25 07:16:04"
+  },
+  {
+    "id": 15,
+    "name": "Agent",
+    "create_time": "2026-06-25 07:16:04"
+  }
+]

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.shop.mapper.VoucherOrderMapper">
+
+    <insert id="insertVoucherOrder" parameterType="org.example.shop.model.entity.VoucherOder">
+        INSERT INTO tb_voucher_order (
+            `id`,
+            `user_id`,
+            `voucher_id`,
+            `status`,
+            `pay_amount`
+        ) VALUES (
+                     #{id},
+                     #{userId},
+                     #{voucherId},
+                     #{status},
+                     #{payAmount}
+                 )
+    </insert>
+    <select id="selectVoucherOrderById" resultType="org.example.shop.model.entity.VoucherOder"
+            parameterType="java.lang.Long">
+        select * from tb_voucher_order where id = #{id}
+    </select>
+    <select id="countVoucherOrder" resultType="java.lang.Integer">
+        select count(*) from tb_voucher_order where voucher_id = #{voucherId} and user_id=#{userId}
+    </select>
+</mapper>

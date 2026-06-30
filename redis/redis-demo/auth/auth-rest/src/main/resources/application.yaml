@@ -1,0 +1,52 @@
+server:
+  port: 8081
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: authserver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        register-enabled: true  # 开启自动注册（默认就是true）
+      config:
+        import-check:
+          enabled: false
+
+  security:
+    user:
+      name: none
+      password: none
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456  # 你的密码
+      database: 0
+      timeout: 10000
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.auth.model.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.example.auth.mapper: DEBUG

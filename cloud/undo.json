@@ -1,0 +1,77 @@
+{
+  "@class": "org.apache.seata.rm.datasource.undo.BranchUndoLog",
+  "xid": "172.22.0.2:8091:5585245887964667905",
+  "branchId": 5585245887964667906,
+  "sqlUndoLogs": [
+    "java.util.ArrayList",
+    [
+      {
+        "@class": "org.apache.seata.rm.datasource.undo.SQLUndoLog",
+        "sqlType": "UPDATE",
+        "tableName": "storage_tbl",
+        "beforeImage": {
+          "@class": "org.apache.seata.rm.datasource.sql.struct.TableRecords",
+          "tableName": "storage_tbl",
+          "rows": [
+            "java.util.ArrayList",
+            [
+              {
+                "@class": "org.apache.seata.rm.datasource.sql.struct.Row",
+                "fields": [
+                  "java.util.ArrayList",
+                  [
+                    {
+                      "@class": "org.apache.seata.rm.datasource.sql.struct.Field",
+                      "name": "count",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 100
+                    },
+                    {
+                      "@class": "org.apache.seata.rm.datasource.sql.struct.Field",
+                      "name": "id",
+                      "keyType": "PRIMARY_KEY",
+                      "type": 4,
+                      "value": 1
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "afterImage": {
+          "@class": "org.apache.seata.rm.datasource.sql.struct.TableRecords",
+          "tableName": "storage_tbl",
+          "rows": [
+            "java.util.ArrayList",
+            [
+              {
+                "@class": "org.apache.seata.rm.datasource.sql.struct.Row",
+                "fields": [
+                  "java.util.ArrayList",
+                  [
+                    {
+                      "@class": "org.apache.seata.rm.datasource.sql.struct.Field",
+                      "name": "count",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 98
+                    },
+                    {
+                      "@class": "org.apache.seata.rm.datasource.sql.struct.Field",
+                      "name": "id",
+                      "keyType": "PRIMARY_KEY",
+                      "type": 4,
+                      "value": 1
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  ]
+}

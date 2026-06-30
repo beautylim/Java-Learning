@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<
+<a href="/logout">Logout</a>
+
+<div style="margin-top:30px;">
+    <h3>接口测试按钮</h3>
+    <button onclick="getStu()">GET /stu</button>
+    <button onclick="postStu()">POST /stu</button>
+    <button onclick="putStu()">PUT /stu</button>
+    <button onclick="deleteStu()">DELETE /stu/1</button>
+</div>
+
+<script>
+    // 1. GET 查询学生列表
+    function getStu() {
+        fetch("/stu/1")
+            .then(res => res.text())
+            .then(data => alert("GET 结果：\n" + data))
+            .catch(err => alert("GET 失败"))
+    }
+
+    // 2. POST 新增学生
+    function postStu() {
+        fetch("/stu", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: "小明", age: 18 })
+        })
+            .then(res => res.text())
+            .then(data => alert("POST 结果：\n" + data))
+            .catch(err => alert("POST 失败"))
+    }
+
+    // 3. PUT 修改学生
+    function putStu() {
+        fetch("/stu/1", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id:1, name: "小红", age: 20 })
+        })
+            .then(res => res.text())
+            .then(data => alert("PUT 结果：\n" + data))
+            .catch(err => alert("PUT 失败"))
+    }
+
+    // 4. DELETE 删除学生
+    function deleteStu() {
+        fetch("/stu/1", { method: "DELETE" })
+            .then(res => res.text())
+            .then(data => alert("DELETE 结果：\n" + data))
+            .catch(err => alert("DELETE 失败"))
+    }
+</script>
+</body>
+</html>

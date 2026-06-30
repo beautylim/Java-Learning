@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.product.mapper.ProductMapper">
+
+    <select id="selectAll" resultType="org.example.model.Order">
+        select id, price,description,quantity from product
+    </select>
+    <select id="selectById" resultType="org.example.model.Order"
+            parameterType="java.lang.Long">
+        select id, price,description,quantity from product where id = #{id}
+    </select>
+</mapper>
